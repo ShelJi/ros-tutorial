@@ -1,5 +1,5 @@
-#include "rclcpp/rclcpp.hpp";
-#include "example_interfaces/msg/string.hpp";
+#include "rclcpp/rclcpp.hpp"
+#include "example_interfaces/msg/string.hpp"
 
 /*
 Publisher example hat periodically sends out a string

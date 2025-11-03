@@ -26,6 +26,8 @@ setup(
         'console_scripts': [
             "my_minimal_publisher = my_py_pkg.minimal_publisher:main",
             "my_minimal_subscriber = my_py_pkg.minimal_subscriber:main",
+            "my_minimal_server = my_py_pkg.minimal_server:main",
+            "my_minimal_client = my_py_pkg.minimal_client:main",
         ],
     },
 )

@@ -4,7 +4,7 @@
 
 ROS2 stands for Robotics Operating System 2. It is an open-source software framework and a set of tools, libraries and conventions for building software.
 
-Reference DIGIKEY
+Reference: Youtube DIGIKEY
 
 ```bash
 # activate ros env
@@ -18,6 +18,10 @@ ros2 run demo_nodes_cpp talker
 ros2 run demo_nodes_py listener
 ```
 
+This example create a c++ talker which send "Hello World 1" each second and python listener which receives logs data from talker.
+
+- This shows ROS2 can communicate between different languages.
+
 ## Debug or extra options availables
 
 ```bash
@@ -25,15 +29,17 @@ ros2 run demo_nodes_py listener
 ros2 topic list
 
 # shows info about the running topic
-ros2 topic info /<PROCESS(/chatter)>
+ros2 topic info /chatter
 
 # quickly receives the message 
 ros2 topic echo /chatter
+
+# Likewise service,...
 ```
 
 ### RQT
 
-ros graphical framework
+rqt is the graphical framework for ROS 2. It provides a suite of tools for visualizing data and the system architecture.
 
 ```bash
 rqt
@@ -55,7 +61,11 @@ ros2 pkg create --build-type ament_python my_py_pkg
 
 ```
 
-Add created publisher to entry_points in setup.py
+- Ament is a build system for Python.
+
+CREATE FILES (minimal_publisher, minimal_subscriber) inside FOLDERNAME
+
+#### Add created publisher to entry_points in setup.py
 
 ```py
 ...
@@ -92,7 +102,9 @@ source GitHub/ros-tutorial/install/setup.bash
 ros2 run my_py_pkg my_minimal_publisher
 ```
 
-(optional) Register into package.xml for standardise
+This create the custom publisher and lisener.
+
+#### (optional) Register into package.xml for standardise
 
 ```xml
 ...
@@ -100,3 +112,35 @@ ros2 run my_py_pkg my_minimal_publisher
 <depend>example_interfaces</depend>
 ...
 ```
+
+## Services
+
+```bash
+ros2 interface list
+
+# Under services
+# sample codes
+...
+example_interfaces/srv/AddTwoInts
+example_interfaces/srv/SetBool
+example_interfaces/srv/Trigger
+...
+
+# Check the details - returns type of i/p and o/p
+ros2 srv interface show example_interfaces/srv/AddTwoInts
+```
+
+Create server(service)
+
+```bash
+# Run the service
+# then check the running service
+ros2 service list
+
+ros2 service info /add_inits
+
+ros2 service call /add_inits example_interfaces/srv/AddTwoInts "{a: 5, b: 2}"
+# Spaces are necessory after colon {a: 2, b: 2}
+```
+
+Create Client (minimal_client)
