@@ -65,7 +65,7 @@ ros2 pkg create --build-type ament_python my_py_pkg
 
 CREATE FILES (minimal_publisher, minimal_subscriber) inside FOLDERNAME
 
-#### Add created publisher to entry_points in setup.py
+### Add created publisher to entry_points in setup.py
 
 ```py
 ...
@@ -144,3 +144,18 @@ ros2 service call /add_inits example_interfaces/srv/AddTwoInts "{a: 5, b: 2}"
 ```
 
 Create Client (minimal_client)
+
+## Simulate Gazebo
+<!-- 
+Reference: [How to Simulate a Robotic Arm in Gazebo - ROS 2 Jazzy](https://www.youtube.com/watch?v=ZYNCQIMkWmE&t=367s)
+
+```bash
+# Create packages
+ros2 pkg create --build-type ament_cmake mycobot_bringup
+
+ros2 pkg create --build-type ament_cmake mycobot_gazebo
+
+ros2 pkg create --build-type ament_cmake mycobot_moveit_config
+
+ros2 pkg create --build-type ament_cmake mycobot_system_tests
+``` -->
