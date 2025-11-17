@@ -280,3 +280,13 @@ Use CDN link to convert urdf to xacro
 
 </robot>
 ```
+
+## Gazebo
+
+gazebo uses sdf file. It also comes with a tool which converts urdf to sdf.
+
+```bash
+# Launch gazebo with ros integrated
+ros2 launch ros_gz_sim gz_sim.launch.py
+
+```
